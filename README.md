@@ -1,5 +1,1 @@
-5 5
-1 2 N
-GAGAGAGAADAAGA
-3 3 E
-AADAADADDAA
+http://pauldijou.fr/mowing/

@@ -55,10 +55,15 @@ class Map
 				@squares[xx][yy] = new Square xx,yy
 				
 	addMower: (mower) ->
-		mower.setMap this
-		mower.draw()
-		@getSquare(mower.x, mower.y).mow()
-		@mowers.push mower
+		if @isOutside mower.x,mower.y
+			notify "Dude, you can't put a mower outside of the field... #{mower.toString()} will be ignored.","error"
+		else if @hasMowerAt mower.x,mower.y
+			notify "Hey man, are you trying to fusion two mowers? #{mower.toString()} will be ignored.","error"
+		else
+			mower.setMap this
+			mower.draw()
+			@getSquare(mower.x, mower.y).mow()
+			@mowers.push mower
 	
 	hasMowerAt: (x, y) ->
 		result = false
@@ -141,9 +146,9 @@ class Mower
 			when 'E' then newX++
 			
 		if @map.isOutside(newX,newY)
-			notify "Advance: try to go outside (#{@x},#{@y}) -> #{@d} -> (#{newX},#{newY})",'error'
+			notify "I don't know who gives orders but #{@toString()} just tried to go outside at (#{newX},#{newY})",'error'
 		else if @map.hasMowerAt(newX,newY)
-			notify "Advance: try to clash another mower (#{@x},#{@y}) -> #{@d} -> (#{newX},#{newY})",'error'
+			notify "Saperlipopette!! We just avoid a crash between #{@toString()} and another mower at (#{newX},#{newY})",'error'
 		else
 			@clean()
 			@x = newX
@@ -159,3 +164,6 @@ class Mower
 		
 	draw: ->
 		getJquerySquare(@x, @y).append('<div class="mower dir'+@d+'"></div>')
+		
+	toString: ->
+		"mower ##{@id} at (#{@x}, #{@y}, #{@d})"
