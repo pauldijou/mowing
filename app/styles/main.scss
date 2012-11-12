@@ -1,0 +1,46 @@
+@import "compass_twitter_bootstrap";
+
+.map {
+  border: 1px solid black;
+}
+
+.map td {
+  border: 1px solid black;
+  background-color: #007700;
+  width: 50px;
+  height: 50px;
+}
+
+.map td.mowed {
+  background-color: #00CC00;
+}
+
+.mower {
+  width: 0px;
+  height: 0px;
+  margin: 0px auto;
+}
+
+.mower.dirN {
+  border-bottom: 20px solid black;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
+
+.mower.dirE {
+  border-left: 20px solid black;
+  border-bottom: 20px solid transparent;
+  border-top: 20px solid transparent;
+}
+
+.mower.dirS {
+  border-top: 20px solid black;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
+
+.mower.dirW {
+  border-right: 20px solid black;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
