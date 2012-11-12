@@ -31,16 +31,50 @@
           <p>
             <textarea id="data" style="width: 300px; height: 200px;" autofocus="autofocus"></textarea>
           </p>
-          
+
         </div>
-        
+
         <div class="span6">
           <div id="map"></div>
         </div>
       </div>
-      
+
     </div>
-    
+
+    <div class="well">
+      <p>
+        <strong>Mowing</strong> is a small interface which simulates some automatic mowers in a rectangular field.
+      </p>
+      <p>A mower is symbolized by three attributes:</p>
+      <ul>
+        <li>x: the horizontal position of the mower in the field</li>
+        <li>y: the vertical position of the mower in the field</li>
+        <li>d: the direction the mower is currently looking at (N,S,E,W)</li>
+      </ul>
+      <p>A mower can receive three differents orders:</p>
+      <ul>
+        <li>A: the mower will advance by one square according to its current direction</li>
+        <li>G: the mower will rotate to its left</li>
+        <li>D: the mower will rotate to its right</li>
+      </ul>
+      <p>(if you are wondering why 'G' and 'D' instead of 'L' and 'R', that's because the subject was in french...
+        but strangely enough, it's 'W' for West and not 'O' for 'Ouest')</p>
+      <p>Knowing that, you can write your own instructions in the textarea before clicking of the "Mow them all!"
+        button and enjoying the result. Here is the syntax for the instructions:</p>
+      <ul>
+        <li>First line: "[0-9]+ [0-9]+" = the coordinates of the top-right square of the field</li>
+        <li>Odd lines: "[0-9]+ [0-9]+ [NSEW]" = init a new mower at those coordinates and give it an initial
+          direction</li>
+        <li>Even lines: "[AGD]+" = a sequence of orders for the mower you have initialized in the previous line</li>
+      </ul>
+
+      <p>Simple example:</p>
+      
+      <p>
+        5 5<br /> 1 2 N<br /> GAGAGAGAA<br />3 3 E<br />AADAADADDA<br />
+      <p>
+    </div>
+
   </div>
 
   <!--[if lt IE 7]>
@@ -52,6 +86,6 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="scripts/vendor/8bc61845.jquery.min.js"><\/script>')</script>
 
-  <script src="scripts/f7893385.amd-app.js"></script>
+  <script src="scripts/d26955ee.amd-app.js"></script>
 </body>
 </html>
