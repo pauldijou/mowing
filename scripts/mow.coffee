@@ -89,10 +89,10 @@ class Map
 		
 		bodyMap = divMap.find('tbody');
 		
-		for xx in [0..@x]
+		for yy in [0..@y]
 			bodyMap.append('<tr></tr>');
-			for yy in [0..@y]
-				bodyMap.children('tr:last-child').append("<td id=\"square-#{yy}-#{@x - xx}\" title=\"(#{yy} x #{@x - xx})\" rel=\"tooltip\"></td>");
+			for xx in [0..@x]
+				bodyMap.children('tr:last-child').append("<td id=\"square-#{xx}-#{@y - yy}\" title=\"(#{xx} x #{@y - yy})\" rel=\"tooltip\"></td>");
 		
 		$('[rel="tooltip"]').tooltip()
 		
